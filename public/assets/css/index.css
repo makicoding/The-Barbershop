@@ -1,0 +1,110 @@
+.backgroundImage {
+    width: 100%;
+    height: auto;
+
+    position: fixed;
+    top: -50px;
+
+    z-index: -1;
+}
+
+.openingPageBranding {
+    width: 100%;
+
+    background-color: none;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 100px;
+
+    position: absolute;
+    top: 33%;
+}
+
+.openingPageButtonsContainer {
+    width: 100%;
+
+    text-align: center;
+    
+    position: absolute;
+    top: 50%;
+}
+
+.openingPageButton {
+    width: 170px;
+
+    margin: 5px 5px 5px 5px;
+}
+
+
+
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+/* MEDIA QUERIES */
+/* When Screen Size Max-Width is 1030px */
+/* (1024px is viewport width of iPad Pro in vertical) */
+/* (1366px is viewport height of iPad Pro in vertical) */
+@media screen and (max-width: 1030px) {
+
+    .backgroundImage {
+        width: auto;
+        height: 100%;
+    
+        position: fixed;
+        top: 0px;
+        left: -350px;
+    }
+
+}
+
+/* -------------------- */
+
+/* When Screen Size Max-Width is 980px */
+/* (768px is viewport width of iPad in vertical) */
+/* (1024px is viewport height of iPad in vertical) */
+@media screen and (max-width: 980px) {
+
+    .backgroundImage {
+        width: auto;
+        height: 100%;
+    
+        position: fixed;
+        top: 0px;
+        left: -300px;
+    }
+
+}
+
+/* -------------------- */
+
+/* When Screen Size Max-Width is 750px */
+/* (375px is viewport width of iPhone X in vertical) */
+@media screen and (max-width: 750px) {
+    
+    .backgroundImage {
+        width: auto;
+        height: 100%;
+
+        position: fixed;
+        top: 0px;
+        left: -400px;
+    }
+
+    .openingPageBranding {
+        font-size: 70px;
+
+        position: absolute;
+        top: 25%;
+    }
+
+    .openingPageButtonsContainer {
+        width: 100%;
+
+        text-align: center;
+        
+        position: absolute;
+        top: 45%;
+    }
+
+}
