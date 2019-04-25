@@ -1,10 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
-  var Appointment = sequelize.define("Appointment", {
-    appointment_date: {
+  var Reservation = sequelize.define("Reservation", {
+    reservation_date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    appointment_time: {
+    reservation_time: {
       type: DataTypes.TIME,
       allowNull: false,
     },
@@ -37,5 +37,5 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
-  return Appointment;
+  return Reservation;
 };
