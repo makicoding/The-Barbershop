@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 
-// Requiring our Todo model
+// Requiring our Reservation model
 var db = require("../models");
 
 // Routes
@@ -13,53 +13,52 @@ var db = require("../models");
 module.exports = function (app) {
 
   // GET route for getting all of the posts
-  app.get("/api/posts/", function (req, res) {
-    db.Post.findAll({})
-      .then(function (dbPost) {
-
-        res.json(dbPost);
+  app.get("/api/reservations/", function (req, res) {
+    db.Reservation.findAll({})
+      .then(function (dbReservation) {
+        res.json(dbReservation);
       });
   });
 
   // Get route for returning posts of a specific category
-  app.get("/api/posts/category/:category", function (req, res) {
-    db.Post.findAll({
+  app.get("/api/reservations/barber/:barberId", function (req, res) {
+    db.Reservation.findAll({
         where: {
-          category: req.params.category
+          barber_id: req.params.barberId
         }
       })
-      .then(function (dbPost) {
-        res.json(dbPost);
+      .then(function (dbReservation) {
+        res.json(dbReservation);
       });
   });
 
   // Get route for retrieving a single post
-  app.get("/api/posts/:id", function (req, res) {
-    db.Post.findOne({
+  app.get("/api/reservations/:id", function (req, res) {
+    db.Reservation.findOne({
         where: {
           id: req.params.id
         }
       })
-      .then(function (dbPost) {
-        res.json(dbPost);
+      .then(function (dbReservation) {
+        res.json(dbReservation);
       });
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function (req, res) {
+  app.post("/api/reservations", function (req, res) {
     console.log(req.body);
-    db.Post.create({
+    db.Reservation.create({
         customerName: req.body.title,
-        date: req.body.body,
+        appointment_date: req.body.body,
         barber: req.body.category,
         time: req.body.body + "/ " + req.body.time
       })
-      .then(function (dbPost) {
+      .then(function (dbReservation) {
         //       res.json(dbPost);
         //     });
         // });
         res.json({
-          dbPost
+          dbReservation
         });
       }).catch(function (err) {
         // handle error;
