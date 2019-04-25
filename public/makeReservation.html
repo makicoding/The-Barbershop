@@ -32,51 +32,47 @@
   <!-- Max width 960px container -->
   <div class="container mainContentContainer">         <!-- Put any bootstrap elements into class="container" to set max width to 960px and have it centered on page -->
     <div class="row">
-      <div class="row">
-        <div class="col-sm-2 mt-4">
-          <a class="btn btn-light" href="/barberPortal">Go to barberPortal</a>
-        </div>
-      </div>
       <div class="col-md-5 offset-md-3">
         <form id="cms">
           <div class="form-group">
-            <label for="title">customer name:</label>
+            <label for="title">Customer First Name:</label>
             <input type="text" class="form-control" id="title">
             <br />
-            <label for="body">date</label>
-            <label for="category">choose date:</label>
+            <label for="body"></label>
+            <label for="category">Select Day:</label>
             <select class="custom-select" id="body">
-              <option selected value="">All Categories</option>
-              <option value="sunday">sunday</option>
-              <option value="tuesday">tuesday</option>
-              <option value="wednesday">wednesday</option>
-              <option value="thursday">thursday</option>
-              <option value="friday">friday</option>
-              <option value="saturday">saturday</option>
+              <option selected value=""></option>
+              <option value="sunday">Sunday</option>
+              <option value="Monday">Monday (Closed)</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
             </select>
             <div class="form-group">
-              <label for="category">Select Category:</label>
+              <label for="category">Select Barber:</label>
               <select class="custom-select" id="category">
-                <option selected value="">All Categories</option>
+                <option selected value=""></option>
                 <option value="barber1">barber1</option>
                 <option value="barber2">barber2</option>
                 <option value="barber3">barber3</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="category">Select Category:</label>
+              <label for="category">Select Time:</label>
               <select class="custom-select" id="time">
-                <option selected value="">All Categories</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
+                <option selected value=""></option>
+                <option value="1000">10am</option>
+                <option value="1100">11am</option>
+                <option value="1200">12pm</option>
+                <option value="1300">1pm</option>
+                <option value="1400">2pm</option>
+                <option value="1500">3pm</option>
+                <option value="1600">4pm</option>
+                <option value="1700">5pm</option>
+                <option value="1800">6pm</option>
+                <option value="1900">7pm</option>
 
               </select>
             </div>
