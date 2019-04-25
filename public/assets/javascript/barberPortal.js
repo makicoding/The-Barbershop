@@ -110,7 +110,7 @@ $(document).ready(function () {
       .parent()
       .parent()
       .data("post");
-    window.location.href = "/cms?post_id=" + currentPost.id;
+    window.location.href = "/barberPortal?post_id=" + currentPost.id;
   }
 
   // This function displays a message when there are no posts

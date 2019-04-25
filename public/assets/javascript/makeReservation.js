@@ -51,7 +51,7 @@ $(document).ready(function () {
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
     $.post("/api/posts/", Post, function () {
-      window.location.href = "/blog";
+      window.location.href = "/makeReservation";
     });
   }
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
         data: post
       })
       .then(function () {
-        window.location.href = "/blog";
+        window.location.href = "/makeReservation";
       });
   }
 });
