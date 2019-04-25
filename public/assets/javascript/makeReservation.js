@@ -20,7 +20,7 @@ $(document).ready(function () {
   var postTime = $("#time");
 
   // Giving the postCategorySelect a default value
-  postCategorySelect.val("barber1");
+  //postCategorySelect.val("barber1");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
