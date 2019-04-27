@@ -24,7 +24,7 @@ module.exports = function (app) {
   app.get("/api/reservations/barber/:barberId", function (req, res) {
     db.Reservation.findAll({
         where: {
-          barber_id: req.params.barberId
+          barber_name: req.params.barberId
         }
       })
       .then(function (dbReservation) {

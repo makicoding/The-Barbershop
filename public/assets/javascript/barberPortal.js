@@ -9,10 +9,10 @@ $(document).ready(function () {
   var posts;
 
   // This function grabs posts from the database and updates the view
-  function getPosts(category) {
-    var categoryString = category || "";
+  function getPosts(barber) {
+    var categoryString = barber || "";
     if (categoryString) {
-      categoryString = "/category/" + categoryString;
+      categoryString = "/barber/" + categoryString;
     }
     $.get("/api/reservations" + categoryString, function (data) {
       console.log("Posts", data);

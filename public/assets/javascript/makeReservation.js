@@ -13,7 +13,8 @@ $(document).ready(function () {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#datepicker");
+  var bodyInput = $("#datepicker").datepicker();
+
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var postCategorySelect = $("#category");
