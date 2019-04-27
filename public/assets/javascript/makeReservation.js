@@ -12,7 +12,7 @@ $(document).ready(function () {
     getPostData(postId);
   }
 
-  // Getting jQuery references to the post body, title, form, and category select
+  // Getting jQuery references to the post body, title, form, and  select
   var bodyInput = $("#datepicker")
   var titleInput = $("#title");
   var cmsForm = $("#cms");
