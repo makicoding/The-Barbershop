@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       // allowNull: false,
     },
     reservation_time: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       // allowNull: false,
     },
     barber_name: {
