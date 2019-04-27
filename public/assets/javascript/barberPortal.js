@@ -65,14 +65,13 @@ $(document).ready(function () {
     var newPostDate = $("<small>");
     var newPostCategory = $("<h5>");
     newPostCategory.text(post.barber_name);
-
     newPostCategory.css({
       //float: "left",
       //"font-weight": "700",
       "font-size": "20px",
-      "margin-top": "-35px",
-      "position": "relative",
-      "left": "140px"
+      "position": "absolute",
+      "right": "56px",
+      "bottom": "20px",
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
@@ -86,7 +85,8 @@ $(document).ready(function () {
     newPostBody.text(post.reservation_time);
     newPostBody.css({
       "font-size": "20px",
-      "margin-top": "18px"
+      "position": "relative",
+      "top": "10px",
     })
 
     var formattedDate = new Date(post.createdAt);
@@ -121,7 +121,7 @@ $(document).ready(function () {
       .parent()
       .parent()
       .data("post");
-    window.location.href = "/barberPortal?post_id=" + currentPost.id;
+    window.location.href = "/makeReservation?post_id=" + currentPost.id;
   }
 
   // This function displays a message when there are no posts
