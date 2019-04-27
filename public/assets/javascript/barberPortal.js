@@ -67,20 +67,31 @@ $(document).ready(function () {
     newPostCategory.text(post.barber_name);
 
     newPostCategory.css({
-      float: "right",
-      "font-weight": "700",
-      "margin-top": "-15px"
+      //float: "left",
+      //"font-weight": "700",
+      "font-size": "20px",
+      "margin-top": "-35px",
+      "position": "relative",
+      "left": "140px"
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.customer_first_name + " ");
+    newPostTitle.css({
+      "font-size": "30px",
+      "margin-top": "8px"
+    });
     newPostBody.text(post.date);
     newPostBody.text(post.reservation_time);
+    newPostBody.css({
+      "font-size": "20px",
+      "margin-top": "18px"
+    })
 
     var formattedDate = new Date(post.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    newPostDate.text(formattedDate);
+    //formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    //newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
