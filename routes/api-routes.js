@@ -49,12 +49,14 @@ module.exports = function (app) {
     console.log("this is req.body", req.body);
     db.Reservation.create({
         customer_first_name: req.body.customerName,
-        reservation_date: req.body.datepicker,
+        reservation_date: req.body.reservation_date,
         barber_name: req.body.barber,
         reservation_time: req.body.time
       })
       .then(function (dbReservation) {
-        console.log("this isdbReservation:", dbReservation)
+        console.log(dbReservation)
+
+        // console.log("this isdbReservation:", dbReservation)
         //       res.json(dbPost);
         //     });
         // });

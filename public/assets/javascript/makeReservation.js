@@ -13,7 +13,7 @@ $(document).ready(function () {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#datepicker").datepicker();
+  var bodyInput = $("#datepicker")
 
   var titleInput = $("#title");
   var cmsForm = $("#cms");
@@ -43,11 +43,11 @@ $(document).ready(function () {
       time: postTime.val()
     };
 
-    console.log(newPost);
 
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
     if (updating) {
+
       newPost.id = postId;
       updatePost(newPost);
     } else {
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
-    console.log(Post)
+    // console.log(Post)
     $.post("/api/reservations/", Post, function () {
       window.location.href = "/makeReservation";
     });
