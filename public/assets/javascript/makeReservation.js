@@ -13,7 +13,7 @@ $(document).ready(function () {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#body");
+  var bodyInput = $("#datepicker");
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var postCategorySelect = $("#category");
@@ -30,9 +30,15 @@ $(document).ready(function () {
     }
     // Constructing a newPost object to hand to the database
     var newPost = {
-      title: titleInput.val().trim(),
-      body: bodyInput.val().trim(),
-      category: postCategorySelect.val(),
+
+      // customerName: req.body.title,
+      // appointment_date: req.body.datepicker,
+      // barber: req.body.category,
+      // time: req.body.datepicker + "/ " + req.body.time
+
+      customerName: titleInput.val().trim(),
+      reservation_date: bodyInput.val().trim(),
+      barber: postCategorySelect.val(),
       time: postTime.val()
     };
 
@@ -50,14 +56,15 @@ $(document).ready(function () {
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
-    $.post("/api/posts/", Post, function () {
+    console.log(Post)
+    $.post("/api/reservations/", Post, function () {
       window.location.href = "/makeReservation";
     });
   }
 
   // Gets post data for a post if we're editing
   function getPostData(id) {
-    $.get("/api/posts/" + id, function (data) {
+    $.get("/api/reservations/" + id, function (data) {
       if (data) {
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);

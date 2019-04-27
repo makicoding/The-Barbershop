@@ -14,7 +14,7 @@ $(document).ready(function () {
     if (categoryString) {
       categoryString = "/category/" + categoryString;
     }
-    $.get("/api/posts" + categoryString, function (data) {
+    $.get("/api/reservations" + categoryString, function (data) {
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
   function deletePost(id) {
     $.ajax({
         method: "DELETE",
-        url: "/api/posts/" + id
+        url: "/api/reservations/" + id
       })
       .then(function () {
         getPosts(postCategorySelect.val());
@@ -64,7 +64,7 @@ $(document).ready(function () {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostCategory = $("<h5>");
-    newPostCategory.text(post.barber);
+    newPostCategory.text(post.barber_name);
 
     newPostCategory.css({
       float: "right",
@@ -74,9 +74,9 @@ $(document).ready(function () {
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    newPostTitle.text(post.customerName + " ");
+    newPostTitle.text(post.customer_first_name + " ");
     newPostBody.text(post.date);
-    newPostBody.text(post.time);
+    newPostBody.text(post.reservation_time);
 
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");

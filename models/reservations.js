@@ -1,20 +1,22 @@
 module.exports = function (sequelize, DataTypes) {
   var Reservation = sequelize.define("Reservation", {
     reservation_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
+      type: DataTypes.STRING,
+      defaultValue: "",
+
+      // allowNull: false,
     },
     reservation_time: {
       type: DataTypes.TIME,
-      allowNull: false,
+      // allowNull: false,
     },
     barber_name: {
       type: DataTypes.STRING,
       defaultValue: ""
     },
     barber_id: {
-      type: DataTypes.INTEGER,
-      defaultValue: ""
+      type: DataTypes.INTEGER
+      // defaultValue: ""
     },
     customer_first_name: {
       type: DataTypes.STRING,
@@ -29,11 +31,11 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         isEmail: true
       }
-    }, 
+    },
     customer_phone: {
       type: DataTypes.STRING,
       validate: {
-        len: [0,15]
+        len: [0, 15]
       }
     }
   });
