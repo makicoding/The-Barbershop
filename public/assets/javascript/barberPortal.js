@@ -15,7 +15,7 @@ $(document).ready(function () {
       categoryString = "/barber/" + categoryString;
     }
     $.get("/api/reservations" + categoryString, function (data) {
-      console.log("Posts", data);
+      // console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty();
