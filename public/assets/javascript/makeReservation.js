@@ -1,82 +1,92 @@
 $(document).ready(function () {
-  // Gets an optional query string from our url (i.e. ?post_id=23)
+  // Gets an optional query string from our url (i.e. ?reservation_id=23)
   var url = window.location.search;
-  var postId;
-  // Sets a flag for whether or not we're updating a post to be false initially
+  var reservationId;
+  // Sets a flag for whether or not we're updating a reservation to be false initially
   var updating = false;
 
-  // If we have this section in our url, we pull out the post id from the url
-  // In localhost:8080/cms?post_id=1, postId is 1
-  if (url.indexOf("?post_id=") !== -1) {
-    postId = url.split("=")[1];
-    getPostData(postId);
+  // If we have this section in our url, we pull out the reservation id from the url
+  // In localhost:8080/cms?reservation_id=1, reservationId is 1
+  if (url.indexOf("?reservation_id=") !== -1) {
+    reservationId = url.split("=")[1];
+    getReservationData(reservationId);
   }
 
-  // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#body");
-  var titleInput = $("#title");
-  var cmsForm = $("#cms");
-  var postCategorySelect = $("#category");
-  var postTime = $("#time");
+  // Getting jQuery references to the reservation information
+  //formerly bodyInput
+  var reservationDate = $("#reservation-date");
+  console.log(reservationDate);
+  //formerly titleInput
+  var customerName = $("#customer-name");
+  // console.log(customerName);
+  var submitReservation = $("#submitReservation");
+  //formerly postCategorySelect
+  var barberSelect = $("#barber");
+  //formerly postTime
+  var reservationTime = $("#reservation-time");
 
-  // Giving the postCategorySelect a default value
-  postCategorySelect.val("barber1");
+  // Giving the barberSelect a default value
+  barberSelect.val("barber1");
+
   // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", function handleFormSubmit(event) {
+  $(submitReservation).on("submit", "#reservation-form", function handleFormSubmit(event) {
     event.preventDefault();
-    // Wont submit the post if we are missing a body or a title
-    if (!titleInput.val().trim() || !bodyInput.val().trim()) {
-      return;
-    }
-    // Constructing a newPost object to hand to the database
-    var newPost = {
-      title: titleInput.val().trim(),
-      body: bodyInput.val().trim(),
-      category: postCategorySelect.val(),
-      time: postTime.val()
+    // Won't submit the reservation if we are missing a date or a time
+    // if (!reservationDate.val().trim() || !reservationTime.val().trim()) {
+    //   return;
+    // }
+    // Constructing a newReservation object to hand to the database
+    var newReservation = {
+      reservation_date: reservationDate.val().trim(),
+      reservation_time: reservationTime.val().trim(),
+      barber_name: barberSelect.val().trim(),
+      customer_first_name: customerName.val().trim(),
+      // customer_last_name:
+      // customer_email:
+      // customer_phone:
     };
 
-    console.log(newPost);
+    console.log(newReservation.reservation_date);
 
-    // If we're updating a post run updatePost to update a post
-    // Otherwise run submitPost to create a whole new post
+    // If we're updating a reservation run updateReservation to update a reservation
+    // Otherwise run submitReservation to create a whole new reservation
     if (updating) {
-      newPost.id = postId;
-      updatePost(newPost);
+      newReservation.id = reservationId;
+      updateReservation(newReservation);
     } else {
-      submitPost(newPost);
+      submitReservation(newReservation);
     }
   });
 
-  // Submits a new post and brings user to blog page upon completion
-  function submitPost(Post) {
-    $.post("/api/posts/", Post, function () {
+  // Submits a new reservation and brings user to makeReservation page upon completion
+  function submitReservation(newReservation) {
+    $.post("/api/reservations/", newReservation, function () {
       window.location.href = "/makeReservation";
     });
   }
 
-  // Gets post data for a post if we're editing
-  function getPostData(id) {
-    $.get("/api/posts/" + id, function (data) {
+  // Gets reservation data for a reservation if we're editing
+  function getReservationData(id) {
+    $.get("/api/reservations/" + id, function (data) {
       if (data) {
-        // If this post exists, prefill our cms forms with its data
-        titleInput.val(data.title);
-        bodyInput.val(data.body);
-        postCategorySelect.val(data.category);
-        postTime.val(data.time);
-        // If we have a post with this id, set a flag for us to know to update the post
+        // If this reservation exists, prefill our cms forms with its data
+        reservationDate.val(data.reservation_date);
+        reservationTime.val(data.reservation_time);
+        barberSelect.val(data.barber_name);
+        customerName.val(data.customer_first_name);
+        // If we have a reservation with this id, set a flag for us to know to update the reservation
         // when we hit submit
         updating = true;
       }
     });
   }
 
-  // Update a given post, bring user to the blog page when done
-  function updatePost(post) {
+  // Update a given reservation, bring user to the makeReservation page when done
+  function updateReservation(reservation) {
     $.ajax({
         method: "PUT",
-        url: "/api/posts",
-        data: post
+        url: "/api/reservations",
+        data: reservation
       })
       .then(function () {
         window.location.href = "/makeReservation";

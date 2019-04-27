@@ -44,7 +44,7 @@ module.exports = function (app) {
       });
   });
 
-  // POST route for saving a new post
+  // POST route for saving a new reservation
   app.post("/api/reservations", function (req, res) {
     console.log(req.body);
     db.Reservation.create({

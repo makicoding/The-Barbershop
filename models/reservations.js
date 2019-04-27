@@ -10,11 +10,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     barber_name: {
       type: DataTypes.STRING,
-      defaultValue: ""
+      defaultValue: "",
     },
     barber_id: {
       type: DataTypes.INTEGER,
-      defaultValue: ""
+      defaultValue: 0,
     },
     customer_first_name: {
       type: DataTypes.STRING,
