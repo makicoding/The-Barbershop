@@ -14,14 +14,14 @@ $(document).ready(function () {
 
   // Getting jQuery references to the post body, title, form, and  select
   var bodyInput = $("#datepicker")
-
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var postCategorySelect = $("#category");
   var postTime = $("#time");
+  var mobileInput = $("#mobile");//added mobile
 
   // Giving the postCategorySelect a default value
-  postCategorySelect.val("barber1");
+  postCategorySelect.val(" ");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -40,7 +40,8 @@ $(document).ready(function () {
       customerName: titleInput.val().trim(),
       reservation_date: bodyInput.val().trim(),
       barber: postCategorySelect.val(),
-      time: postTime.val()
+      time: postTime.val(),
+      mobile: mobileInput.val()//added mobile 
     };
 
 
@@ -72,6 +73,7 @@ $(document).ready(function () {
         bodyInput.val(data.body);
         postCategorySelect.val(data.category);
         postTime.val(data.time);
+        mobileInput.val(data.mobile)//added mobile
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
