@@ -25,7 +25,7 @@ module.exports = function (app) {
   app.get("/api/posts/category/:category", function (req, res) {
     db.Post.findAll({
         where: {
-          category: req.params.category
+          barber_name: req.params.barberId
         }
       })
       .then(function (dbPost) {
@@ -46,31 +46,35 @@ module.exports = function (app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function (req, res) {
-    console.log(req.body);
-    db.Post.create({
-        customerName: req.body.title,
-        date: req.body.body,
-        barber: req.body.category,
-        time: req.body.body + "/ " + req.body.time
+  app.post("/api/reservations", function (req, res) {
+    console.log("this is req.body", req.body);
+    db.Reservation.create({
+        customer_first_name: req.body.customerName,
+        reservation_date: req.body.reservation_date,
+        barber_name: req.body.barber,
+        reservation_time: req.body.time
       })
-      .then(function (dbPost) {
+      .then(function (dbReservation) {
+        console.log(dbReservation)
+
+        // console.log("this isdbReservation:", dbReservation)
         //       res.json(dbPost);
         //     });
         // });
         res.json({
           dbPost
         });
-      }).catch(function (err) {
-        // handle error;
-        console.log("appointment already booked")
-      });
+      })
+    // .catch(function (err) {
+    //   // handle error;
+    //   console.log("appointment already booked")
+    // });
   });
 
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function (req, res) {
-    db.Post.destroy({
+  app.delete("/api/reservations/:id", function (req, res) {
+    db.Reservation.destroy({
         where: {
           id: req.params.id
         }
@@ -81,8 +85,8 @@ module.exports = function (app) {
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function (req, res) {
-    db.Post.update(req.body, {
+  app.put("/api/reservations", function (req, res) {
+    db.Reservation.update(req.body, {
         where: {
           id: req.body.id
         }

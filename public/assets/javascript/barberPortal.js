@@ -9,13 +9,13 @@ $(document).ready(function () {
   var posts;
 
   // This function grabs posts from the database and updates the view
-  function getPosts(category) {
-    var categoryString = category || "";
+  function getPosts(barber) {
+    var categoryString = barber || "";
     if (categoryString) {
-      categoryString = "/category/" + categoryString;
+      categoryString = "/barber/" + categoryString;
     }
-    $.get("/api/posts" + categoryString, function (data) {
-      console.log("Posts", data);
+    $.get("/api/reservations" + categoryString, function (data) {
+      // console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty();
@@ -29,7 +29,7 @@ $(document).ready(function () {
   function deletePost(id) {
     $.ajax({
         method: "DELETE",
-        url: "/api/posts/" + id
+        url: "/api/reservations/" + id
       })
       .then(function () {
         getPosts(postCategorySelect.val());
@@ -64,7 +64,7 @@ $(document).ready(function () {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostCategory = $("<h5>");
-    newPostCategory.text(post.barber);
+    newPostCategory.text(post.barber_name);
 
     newPostCategory.css({
       float: "right",
@@ -74,9 +74,9 @@ $(document).ready(function () {
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    newPostTitle.text(post.customerName + " ");
+    newPostTitle.text(post.customer_first_name + " ");
     newPostBody.text(post.date);
-    newPostBody.text(post.time);
+    newPostBody.text(post.reservation_time);
 
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
