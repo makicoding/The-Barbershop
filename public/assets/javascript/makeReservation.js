@@ -13,14 +13,14 @@ $(document).ready(function () {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#body");
+  var bodyInput = $("#datepicker");//datepicker previously labled as body
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var postCategorySelect = $("#category");
   var postTime = $("#time");
 
   // Giving the postCategorySelect a default value
-  postCategorySelect.val("barber1");
+  //postCategorySelect.val("barber1");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
