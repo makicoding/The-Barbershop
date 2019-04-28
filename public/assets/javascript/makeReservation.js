@@ -19,6 +19,7 @@ $(document).ready(function () {
   var postCategorySelect = $("#category");
   var postTime = $("#time");
   var mobileInput = $("#mobile");//added mobile
+  var emailInput = $("#email");//added email
 
   // Giving the postCategorySelect a default value
   postCategorySelect.val(" ");
@@ -41,7 +42,8 @@ $(document).ready(function () {
       reservation_date: bodyInput.val().trim(),
       barber: postCategorySelect.val(),
       time: postTime.val(),
-      mobile: mobileInput.val()//added mobile 
+      mobile: mobileInput.val(),//added mobile 
+      email: emailInput.val()//added email 
     };
 
 
@@ -74,6 +76,7 @@ $(document).ready(function () {
         postCategorySelect.val(data.category);
         postTime.val(data.time);
         mobileInput.val(data.mobile)//added mobile
+        emailInput.val(data.email)//added mobile
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
