@@ -52,7 +52,8 @@ module.exports = function (app) {
         reservation_date: req.body.reservation_date,
         barber_name: req.body.barber,
         reservation_time: req.body.time,
-        customer_phone: req.body.mobile
+        customer_phone: req.body.mobile,
+        customer_email: req.body.email
       })
       .then(function (dbReservation) {
         console.log(dbReservation)
