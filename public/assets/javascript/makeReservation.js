@@ -13,13 +13,13 @@ $(document).ready(function () {
   }
 
   // Getting jQuery references to the post body, title, form, and  select
-  var bodyInput = $("#datepicker")
-  var titleInput = $("#title");
-  var customerReservationForm = $("#reservationForm");
-  var postCategorySelect = $("#category");
-  var postTime = $("#time");
-  var mobileInput = $("#mobile");//added mobile
-  var emailInput = $("#email");//added email
+  var customerReservationForm = $("#reservationForm");  // Reservation Form
+  var titleInput = $("#title");             // Customer Name
+  var mobileInput = $("#mobile");           // Mobile Number
+  var emailInput = $("#email");             // Email
+  var postCategorySelect = $("#category");  // Select Barber
+  var bodyInput = $("#datepicker")          // Select Date
+  var postTime = $("#time");                // Select Time
 
   // Giving the postCategorySelect a default value
   postCategorySelect.val(" ");
@@ -71,12 +71,12 @@ $(document).ready(function () {
     $.get("/api/reservations/" + id, function (data) {
       if (data) {
         // If this post exists, prefill our cms forms with its data
-        titleInput.val(data.title);
-        bodyInput.val(data.body);
-        postCategorySelect.val(data.category);
-        postTime.val(data.time);
-        mobileInput.val(data.mobile)//added mobile
-        emailInput.val(data.email)//added mobile
+        titleInput.val(data.customer_name);       // Customer Name
+        mobileInput.val(data.customer_phone)      // Mobile
+        emailInput.val(data.customer_email)       // Email
+        postCategorySelect.val(data.barber_name); // Select Barber
+        bodyInput.val(data.reservation_date);     // Select Date
+        postTime.val(data.reservation_time);      // Select Time
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
