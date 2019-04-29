@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
     customer_email: {
       type: DataTypes.STRING,
       validate: {
-        isEmail: true
+        //isEmail: true
       }
     },
     customer_phone: {
