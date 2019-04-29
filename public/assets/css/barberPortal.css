@@ -2,11 +2,11 @@ button.submit {
     float: right;
   }
   
-  form#cms {
+  form#reservationForm {
     margin-top: 50px;
   }
   
-  #cms textarea {
+  #reservationForm textarea {
     resize: none;
   }
   

@@ -76,13 +76,13 @@ $(document).ready(function () {
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    newPostTitle.text(post.customer_first_name + " ");
+    newPostTitle.text(post.customer_name + " ");
     newPostTitle.css({
       "font-size": "30px",
       "margin-top": "8px"
     });
-    newPostBody.text(post.date);
-    newPostBody.text(post.reservation_time);
+    //newPostBody.text(post.date);
+    newPostBody.text(post.reservation_date + " at " + post.reservation_time);
     newPostBody.css({
       "font-size": "20px",
       "position": "relative",
@@ -132,7 +132,7 @@ $(document).ready(function () {
       "text-align": "center",
       "margin-top": "50px"
     });
-    messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
+    messageH2.html("No reservations yet for this barber, <a href='/makeReservation'>click here</a> to create a new reservation.");
     blogContainer.append(messageH2);
   }
 

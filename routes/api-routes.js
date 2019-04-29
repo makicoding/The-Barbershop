@@ -48,7 +48,7 @@ module.exports = function (app) {
   app.post("/api/reservations", function (req, res) {
     console.log("this is req.body", req.body);
     db.Reservation.create({
-        customer_first_name: req.body.customerName,
+        customer_name: req.body.customerName,
         reservation_date: req.body.reservation_date,
         barber_name: req.body.barber,
         reservation_time: req.body.time,

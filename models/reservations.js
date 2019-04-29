@@ -14,15 +14,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       defaultValue: ""
     },
-    barber_id: {
-      type: DataTypes.INTEGER
-      // defaultValue: ""
-    },
-    customer_first_name: {
-      type: DataTypes.STRING,
-      defaultValue: "",
-    },
-    customer_last_name: {
+    customer_name: {
       type: DataTypes.STRING,
       defaultValue: "",
     },
