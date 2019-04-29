@@ -14,12 +14,12 @@ $(document).ready(function () {
 
   // Getting jQuery references to the post body, title, form, and  select
   var customerReservationForm = $("#reservationForm"); // Reservation Form
-  var titleInput = $("#title"); // Customer Name
-  var mobileInput = $("#mobile"); // Mobile Number
-  var emailInput = $("#email"); // Email
-  var postCategorySelect = $("#category"); // Select Barber
-  var bodyInput = $("#datepicker") // Select Date
-  var postTime = $("#time"); // Select Time
+  var titleInput = $("#title");             // Customer Name
+  var mobileInput = $("#mobile");           // Mobile Number
+  var emailInput = $("#email");             // Email
+  var postCategorySelect = $("#category");  // Select Barber
+  var bodyInput = $("#datepicker")          // Select Date
+  var postTime = $("#time");                // Select Time
 
   // Giving the postCategorySelect a default value
   postCategorySelect.val(" ");
@@ -32,11 +32,11 @@ $(document).ready(function () {
     }
     // Constructing a newPost object to hand to the database
     var newPost = {
-      customerName: titleInput.val().trim(), // Customer Name
-      mobile: mobileInput.val(), // Mobile Number
-      email: emailInput.val(), // Email
-      barber: postCategorySelect.val(), // Barber
-      reservation_date: bodyInput.val().trim(), // Reservation Date
+      customerName: titleInput.val().trim(),      // Customer Name
+      mobile: mobileInput.val(),                  // Mobile Number
+      email: emailInput.val(),                    // Email
+      barber: postCategorySelect.val(),           // Barber
+      reservation_date: bodyInput.val().trim(),   // Reservation Date
       time: postTime.val() // Reservation Time
     };
 
@@ -65,12 +65,13 @@ $(document).ready(function () {
     $.get("/api/reservations/" + id, function (data) {
       if (data) {
         // If this post exists, prefill our cms forms with its data
-        titleInput.val(data.customer_name); // Customer Name
-        mobileInput.val(data.customer_phone) // Mobile
-        emailInput.val(data.customer_email) // Email
+        titleInput.val(data.customer_name);       // Customer Name
+        mobileInput.val(data.customer_phone)      // Mobile
+        emailInput.val(data.customer_email)       // Email
         postCategorySelect.val(data.barber_name); // Select Barber
-        bodyInput.val(data.reservation_date); // Select Date
-        postTime.val(data.reservation_time); // Select Time
+        bodyInput.val(data.reservation_date);     // Select Date
+        postTime.val(data.reservation_time);      // Select Time
+
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
