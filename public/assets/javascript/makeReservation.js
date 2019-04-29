@@ -15,7 +15,7 @@ $(document).ready(function () {
   // Getting jQuery references to the post body, title, form, and  select
   var bodyInput = $("#datepicker")
   var titleInput = $("#title");
-  var cmsForm = $("#cms");
+  var customerReservationForm = $("#reservationForm");
   var postCategorySelect = $("#category");
   var postTime = $("#time");
   var mobileInput = $("#mobile");//added mobile
@@ -24,7 +24,7 @@ $(document).ready(function () {
   // Giving the postCategorySelect a default value
   postCategorySelect.val(" ");
   // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", function handleFormSubmit(event) {
+  $(customerReservationForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body or a title
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
