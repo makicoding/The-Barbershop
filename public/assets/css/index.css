@@ -1,11 +1,29 @@
-.backgroundImage {
-    width: 100%;
-    height: auto;
+.navigationContainer {
+    width: 300px;
+    height: 520px;
 
-    position: fixed;
-    top: -50px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgrey;
 
-    z-index: -1;
+    background-color: white;
+
+    opacity: 0.9;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-150px, -260px);
+}
+
+.indexPageLogo {
+    width: 260px;
+    text-align: center;
+
+    position: relative;
+    top: 20px;
+    left: 20px;
 }
 
 .openingPageBranding {
@@ -47,14 +65,7 @@
 /* (1366px is viewport height of iPad Pro in vertical) */
 @media screen and (max-width: 1030px) {
 
-    .backgroundImage {
-        width: auto;
-        height: 100%;
-    
-        position: fixed;
-        top: 0px;
-        left: -350px;
-    }
+
 
 }
 
@@ -65,14 +76,7 @@
 /* (1024px is viewport height of iPad in vertical) */
 @media screen and (max-width: 980px) {
 
-    .backgroundImage {
-        width: auto;
-        height: 100%;
-    
-        position: fixed;
-        top: 0px;
-        left: -300px;
-    }
+
 
 }
 
@@ -81,15 +85,6 @@
 /* When Screen Size Max-Width is 750px */
 /* (375px is viewport width of iPhone X in vertical) */
 @media screen and (max-width: 750px) {
-    
-    .backgroundImage {
-        width: auto;
-        height: 100%;
-
-        position: fixed;
-        top: 0px;
-        left: -400px;
-    }
 
     .openingPageBranding {
         font-size: 70px;

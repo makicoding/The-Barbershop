@@ -1,18 +1,35 @@
 button.submit {
-    float: right;
-  }
+  padding: 10px 25px 10px 20px !important;
+  border: none;
+  border-radius: 5px;
+
+  background-color: #FFC948;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 20px;
+
+  cursor: pointer;
+  outline: 0;
+
+  float: right;
+}
+
+button.submit:hover {
+  background-color: black;
+  color: white;
+}
   
-  form#reservationForm {
-    margin-top: 50px;
-  }
-  
-  #reservationForm textarea {
-    resize: none;
-  }
-  
-  .card-header button.delete,
-  button.edit {
-    float: right;
-    margin: 5px;
-  }
-  
+form#reservationForm {
+  margin-top: 50px;
+}
+
+#reservationForm textarea {
+  resize: none;
+}
+
+.card-header button.delete,
+button.edit {
+  float: right;
+  margin: 5px;
+}
