@@ -32,18 +32,12 @@ $(document).ready(function () {
     }
     // Constructing a newPost object to hand to the database
     var newPost = {
-
-      // customerName: req.body.title,
-      // appointment_date: req.body.datepicker,
-      // barber: req.body.category,
-      // time: req.body.datepicker + "/ " + req.body.time
-
-      customerName: titleInput.val().trim(),
-      reservation_date: bodyInput.val().trim(),
-      barber: postCategorySelect.val(),
-      time: postTime.val(),
-      mobile: mobileInput.val(),//added mobile 
-      email: emailInput.val()//added email 
+      customerName: titleInput.val().trim(),      // Customer Name
+      mobile: mobileInput.val(),                  // Mobile Number
+      email: emailInput.val(),                    // Email
+      barber: postCategorySelect.val(),           // Barber
+      reservation_date: bodyInput.val().trim(),   // Reservation Date
+      time: postTime.val()                        // Reservation Time
     };
 
 
@@ -88,11 +82,12 @@ $(document).ready(function () {
   function updatePost(post) {
     $.ajax({
         method: "PUT",
-        url: "/api/posts",
+        url: "/api/reservations/",
         data: post
       })
-      .then(function () {
-        window.location.href = "/makeReservation";
-      });
+      console.log(post);
+      //.then(function () {
+      //  window.location.href = "/makeReservation";
+      //});
   }
 });
