@@ -17,28 +17,28 @@
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/index.css">
   <link rel="stylesheet" href="assets/css/makeReservation.css">
-  <link rel="stylesheet" href="assets/css/editReservation.css">
-  <link rel="stylesheet" href="assets/css/cancelReservation.css">
   <link rel="stylesheet" href="assets/css/barberPortal.css">
   <link rel="stylesheet" href="assets/css/about.css">
 
-  <!--datepicker links-->
+  <!-- Datepicker Links -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
-  <!-- jQuery -->
+  <!-- jQuery (these jQuery links for Datepicker are compatible with Hamburger Menu) -->
   <!-- This must come before the Bootstrap Popper and Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <!-- jQuery -->
+  <!-- jQuery Link for Hamburger Menu-->
   <!-- This must come before the Bootstrap Popper and Bootstrap JS -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
-  <!--datepicker script-->
+  <!-- Datepicker Script -->
   <script>
     $(function () {
-      $("#datepicker").datepicker();
+      $("#datepicker").datepicker({ 
+        dateFormat: 'yy/mm/dd' 
+      });
     });
   </script>
 
@@ -46,7 +46,6 @@
 
 
 </head>
-
 <body>
 
   <!-------------------------------------------------------------------------------->
@@ -58,62 +57,63 @@
     <!-- Put any bootstrap elements into class="container" to set max width to 960px and have it centered on page -->
     <div class="row">
       <div class="col-md-5 offset-md-3">
-        <form id="cms">
+        <form id="reservationForm">
+          
           <div class="form-group">
-            <label for="title">Customer First Name:</label>
-            <input type="text" class="form-control" id="title">
-            <br />
-            <div class="form-group">
-              <label for="category">Select Barber:</label>
-              <select class="custom-select" id="category">
-                <option selected value=""></option>
-                <option value="barber1">barber1</option>
-                <option value="barber2">barber2</option>
-                <option value="barber3">barber3</option>
-              </select>
-            </div>
-            <!--date picker-->
-            <div class='form-group'>
-              <label for="body"></label>
-              <label for="category">Select Date:</label>
-              <br>
-              <input type="text" id="datepicker">
-            </div>
-
-            <!-- <div class="form-group">
-              <label for="body"></label>
-              <label for="category">Select Day:</label>
-              <select class="custom-select" id="body">
-                <option selected value=""></option>
-                <option value="sunday">Sunday</option>
-                <option value="Monday">Monday (Closed)</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
-              </select>
-            </div> -->
-            <div class="form-group">
-              <label for="category">Select Time:</label>
-              <select class="custom-select" id="time">
-                <option selected value=""></option>
-                <option value="1000">10am</option>
-                <option value="1100">11am</option>
-                <option value="1200">12pm</option>
-                <option value="1300">1pm</option>
-                <option value="1400">2pm</option>
-                <option value="1500">3pm</option>
-                <option value="1600">4pm</option>
-                <option value="1700">5pm</option>
-                <option value="1800">6pm</option>
-                <option value="1900">7pm</option>
-
-              </select>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+            <label for="title">Customer Name:</label>
+            <input type="text" class="form-control" id="title" autocomplete="off">  <!-- autocomplete="off" is used to turn off the autocomplete of input field -->
           </div>
+
+          <div class="form-group">
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" class="form-control" id="mobile" autocomplete="off"> <!-- autocomplete="off" is used to turn off the autocomplete of input field -->
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" autocomplete="off">  <!-- autocomplete="off" is used to turn off the autocomplete of input field -->
+          </div>
+            
+          <div class="form-group">
+            <label for="category">Select Barber:</label>
+            <select class="custom-select" id="category">
+              <option selected value=""></option>
+              <option value="Tony">Tony</option>
+              <option value="Bob">Bob</option>
+              <option value="Jim">Jim</option>
+            </select>
+          </div>
+
+          <!-- Datepicker -->
+          <div class='form-group'>
+            <label for="body"></label>
+            <label for="category">Select Date:</label>
+            <br>
+            <input type="text" class="form-control" id="datepicker" autocomplete="off"> <!-- autocomplete="off" is used to turn off the autocomplete of input field -->
+          </div>
+
+          <div class="form-group">
+            <label for="category">Select Time:</label>
+            <select class="custom-select" id="time">
+              <option selected value=""></option>
+              <option value="10am">10am</option>
+              <option value="11am">11am</option>
+              <option value="12pm">12pm</option>
+              <option value="1pm">1pm</option>
+              <option value="2pm">2pm</option>
+              <option value="3pm">3pm</option>
+              <option value="4pm">4pm</option>
+              <option value="5pm">5pm</option>
+              <option value="6pm">6pm</option>
+              <option value="7pm">7pm</option>
+            </select>
+          </div>
+
+          <br>
+
+          <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+          <br></br>
+
         </form>
       </div>
     </div>
@@ -138,8 +138,6 @@
     <!-- Overlay content -->
     <div class="overlay-content">
       <span class="nonActiveButton">Make Reservation</span>
-      <a href="editReservation.html">Edit Reservation</a>
-      <a href="cancelReservation.html">Cancel Reservation</a>
       <a href="barberPortal.html">Barber Portal</a>
       <a href="about.html">About</a>
       <a href="index.html">Back To Home</a>
@@ -163,7 +161,7 @@
 
 
   <!-------------------------------------------------------------------------------->
-
+  <!-- SCRIPTS -->
 
   <!-- Bootstrap Popper and Bootstrap JS -->
   <!-- Popper.js, then Bootstrap JS -->
@@ -177,7 +175,6 @@
   <!-- Moment JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
 
-
   <!-- JavaScript Links -->
   <script src="assets/javascript/hamburgerMenu.js"></script>
   <script src="assets/javascript/makeReservation.js" type="text/javascript"></script>
@@ -186,5 +183,4 @@
 
 
 </body>
-
 </html>

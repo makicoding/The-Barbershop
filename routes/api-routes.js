@@ -4,6 +4,7 @@
 
 // Dependencies
 // =============================================================
+var moment = require("moment")
 
 // Requiring our Reservation model
 var db = require("../models");
@@ -14,7 +15,33 @@ module.exports = function (app) {
 
   // GET route for getting all of the posts
   app.get("/api/reservations/", function (req, res) {
-    db.Reservation.findAll({})
+    var cool = new Date();
+    var Sequelize = require("sequelize")
+    const Op = Sequelize.Op
+
+
+
+    // console.log(cool)
+    var nowDate = moment(cool).format("YYYY/MM/DD");
+    var timeNow = moment(cool).format("LT");
+
+    console.log(nowDate + " " + timeNow)
+    var momentDateTime = (nowDate + " " + timeNow)
+    db.Reservation.findAll({
+        order: [
+          ["reservation_date"],
+        ],
+
+        where: {
+          reservation_date: {
+            [Op.gt]: nowDate
+          }
+
+
+        }
+
+
+      })
       .then(function (dbReservation) {
         res.json(dbReservation);
       });
@@ -22,9 +49,21 @@ module.exports = function (app) {
 
   // Get route for returning posts of a specific category
   app.get("/api/reservations/barber/:barberId", function (req, res) {
+    var cool = new Date();
+    var Sequelize = require("sequelize")
+    const Op = Sequelize.Op
+
+
+
+    // console.log(cool)
+    var nowDate = moment(cool).format("YYYY/MM/DD");
+    var timeNow = moment(cool).format("LT");
     db.Reservation.findAll({
         where: {
-          barber_id: req.params.barberId
+          barber_name: req.params.barberId,
+          reservation_date: {
+            [Op.gt]: nowDate
+          }
         }
       })
       .then(function (dbReservation) {
@@ -46,30 +85,36 @@ module.exports = function (app) {
 
   // POST route for saving a new post
   app.post("/api/reservations", function (req, res) {
-    console.log(req.body);
+    console.log("this is req.body", req.body);
     db.Reservation.create({
-        customerName: req.body.title,
-        appointment_date: req.body.body,
-        barber: req.body.category,
-        time: req.body.body + "/ " + req.body.time
+        customer_name: req.body.customerName,
+        reservation_date: req.body.reservation_date,
+        barber_name: req.body.barber,
+        reservation_time: req.body.time,
+        customer_phone: req.body.mobile,
+        customer_email: req.body.email
       })
       .then(function (dbReservation) {
+        console.log(dbReservation)
+
+        // console.log("this isdbReservation:", dbReservation)
         //       res.json(dbPost);
         //     });
         // });
         res.json({
           dbReservation
         });
-      }).catch(function (err) {
-        // handle error;
-        console.log("appointment already booked")
-      });
+      })
+    // .catch(function (err) {
+    //   // handle error;
+    //   console.log("appointment already booked")
+    // });
   });
 
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function (req, res) {
-    db.Post.destroy({
+  app.delete("/api/reservations/:id", function (req, res) {
+    db.Reservation.destroy({
         where: {
           id: req.params.id
         }
@@ -80,8 +125,8 @@ module.exports = function (app) {
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function (req, res) {
-    db.Post.update(req.body, {
+  app.put("/api/reservations", function (req, res) {
+    db.Reservation.update(req.body, {
         where: {
           id: req.body.id
         }

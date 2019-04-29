@@ -9,13 +9,13 @@ $(document).ready(function () {
   var posts;
 
   // This function grabs posts from the database and updates the view
-  function getPosts(category) {
-    var categoryString = category || "";
+  function getPosts(barber) {
+    var categoryString = barber || "";
     if (categoryString) {
-      categoryString = "/category/" + categoryString;
+      categoryString = "/barber/" + categoryString;
     }
-    $.get("/api/posts" + categoryString, function (data) {
-      console.log("Posts", data);
+    $.get("/api/reservations" + categoryString, function (data) {
+      // console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty();
@@ -29,7 +29,7 @@ $(document).ready(function () {
   function deletePost(id) {
     $.ajax({
         method: "DELETE",
-        url: "/api/posts/" + id
+        url: "/api/reservations/" + id
       })
       .then(function () {
         getPosts(postCategorySelect.val());
@@ -64,23 +64,34 @@ $(document).ready(function () {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostCategory = $("<h5>");
-    newPostCategory.text(post.barber);
-
+    newPostCategory.text(post.barber_name);
     newPostCategory.css({
-      float: "right",
-      "font-weight": "700",
-      "margin-top": "-15px"
+      //float: "left",
+      //"font-weight": "700",
+      "font-size": "20px",
+      "position": "absolute",
+      "right": "56px",
+      "bottom": "20px",
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    newPostTitle.text(post.customerName + " ");
-    newPostBody.text(post.date);
-    newPostBody.text(post.time);
+    newPostTitle.text(post.customer_name + " ");
+    newPostTitle.css({
+      "font-size": "30px",
+      "margin-top": "8px"
+    });
+    //newPostBody.text(post.date);
+    newPostBody.text(post.reservation_date + " at " + post.reservation_time);
+    newPostBody.css({
+      "font-size": "20px",
+      "position": "relative",
+      "top": "10px",
+    })
 
     var formattedDate = new Date(post.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    newPostDate.text(formattedDate);
+    //formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    //newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
@@ -110,7 +121,7 @@ $(document).ready(function () {
       .parent()
       .parent()
       .data("post");
-    window.location.href = "/barberPortal?post_id=" + currentPost.id;
+    window.location.href = "/makeReservation?post_id=" + currentPost.id;
   }
 
   // This function displays a message when there are no posts
@@ -121,7 +132,7 @@ $(document).ready(function () {
       "text-align": "center",
       "margin-top": "50px"
     });
-    messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
+    messageH2.html("No reservations yet for this barber, <a href='/makeReservation'>click here</a> to create a new reservation.");
     blogContainer.append(messageH2);
   }
 
