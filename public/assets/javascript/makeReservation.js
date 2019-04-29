@@ -13,7 +13,7 @@ $(document).ready(function () {
   }
 
   // Getting jQuery references to the post body, title, form, and  select
-  var customerReservationForm = $("#reservationForm");  // Reservation Form
+  var customerReservationForm = $("#reservationForm"); // Reservation Form
   var titleInput = $("#title");             // Customer Name
   var mobileInput = $("#mobile");           // Mobile Number
   var emailInput = $("#email");             // Email
@@ -37,7 +37,7 @@ $(document).ready(function () {
       email: emailInput.val(),                    // Email
       barber: postCategorySelect.val(),           // Barber
       reservation_date: bodyInput.val().trim(),   // Reservation Date
-      time: postTime.val()                        // Reservation Time
+      time: postTime.val() // Reservation Time
     };
 
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
     } else {
       submitPost(newPost);
     }
-  });
+  })
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
@@ -71,6 +71,7 @@ $(document).ready(function () {
         postCategorySelect.val(data.barber_name); // Select Barber
         bodyInput.val(data.reservation_date);     // Select Date
         postTime.val(data.reservation_time);      // Select Time
+
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
@@ -81,13 +82,13 @@ $(document).ready(function () {
   // Update a given post, bring user to the blog page when done
   function updatePost(post) {
     $.ajax({
-        method: "PUT",
-        url: "/api/reservations/",
-        data: post
-      })
-      console.log(post);
-      //.then(function () {
-      //  window.location.href = "/makeReservation";
-      //});
+      method: "PUT",
+      url: "/api/reservations/",
+      data: post
+    })
+    console.log(post);
+    //.then(function () {
+    //  window.location.href = "/makeReservation";
+    //});
   }
 });

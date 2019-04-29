@@ -4,6 +4,7 @@
 
 // Dependencies
 // =============================================================
+var moment = require("moment")
 
 // Requiring our Reservation model
 var db = require("../models");
@@ -14,7 +15,33 @@ module.exports = function (app) {
 
   // GET route for getting all of the posts
   app.get("/api/reservations/", function (req, res) {
-    db.Reservation.findAll({})
+    var cool = new Date();
+    var Sequelize = require("sequelize")
+    const Op = Sequelize.Op
+
+
+
+    // console.log(cool)
+    var nowDate = moment(cool).format("YYYY/MM/DD");
+    var timeNow = moment(cool).format("LT");
+
+    console.log(nowDate + " " + timeNow)
+    var momentDateTime = (nowDate + " " + timeNow)
+    db.Reservation.findAll({
+        order: [
+          ["reservation_date"],
+        ],
+
+        where: {
+          reservation_date: {
+            [Op.gt]: nowDate
+          }
+
+
+        }
+
+
+      })
       .then(function (dbReservation) {
         res.json(dbReservation);
       });
@@ -22,9 +49,21 @@ module.exports = function (app) {
 
   // Get route for returning posts of a specific category
   app.get("/api/reservations/barber/:barberId", function (req, res) {
+    var cool = new Date();
+    var Sequelize = require("sequelize")
+    const Op = Sequelize.Op
+
+
+
+    // console.log(cool)
+    var nowDate = moment(cool).format("YYYY/MM/DD");
+    var timeNow = moment(cool).format("LT");
     db.Reservation.findAll({
         where: {
-          barber_name: req.params.barberId
+          barber_name: req.params.barberId,
+          reservation_date: {
+            [Op.gt]: nowDate
+          }
         }
       })
       .then(function (dbReservation) {
