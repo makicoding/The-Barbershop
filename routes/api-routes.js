@@ -87,12 +87,12 @@ module.exports = function (app) {
   app.post("/api/reservations", function (req, res) {
     console.log("this is req.body", req.body);
     db.Reservation.create({
-        customer_name: req.body.customerName,
+        customer_name: req.body.customer_name,
         reservation_date: req.body.reservation_date,
-        barber_name: req.body.barber,
-        reservation_time: req.body.time,
-        customer_phone: req.body.mobile,
-        customer_email: req.body.email
+        barber_name: req.body.barber_name,
+        reservation_time: req.body.reservation_time,
+        customer_phone: req.body.customer_phone,
+        customer_email: req.body.customer_email
       })
       .then(function (dbReservation) {
         console.log(dbReservation)
