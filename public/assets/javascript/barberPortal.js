@@ -70,7 +70,7 @@ $(document).ready(function () {
       //"font-weight": "700",
       "font-size": "20px",
       "position": "absolute",
-      "right": "56px",
+      "right": "25px",
       "bottom": "20px",
     });
     var newPostCardBody = $("<div>");
@@ -141,5 +141,13 @@ $(document).ready(function () {
     var newPostCategory = $(this).val();
     getPosts(newPostCategory);
   }
+
+  // This function is for the Refresh Data Button and when clicked, it reloads the page
+  function pageReload() {
+    $(".refreshDataButton").click(function() {
+      location.reload();
+    });
+  }
+  pageReload();
 
 });
