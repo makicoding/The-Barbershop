@@ -43,6 +43,8 @@
     position: fixed;
     left: 50%;
     transform: translate(-40px, 0px);
+
+    z-index: 1;
 }
 
 .pageHeading {
