@@ -64,25 +64,26 @@ $(document).ready(function () {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostCategory = $("<h5>");
-    newPostCategory.text(post.barber_name);
+    // newPostCategory.text(post.customer_name);
     newPostCategory.css({
       //float: "left",
       //"font-weight": "700",
       "font-size": "20px",
       "position": "absolute",
-      "right": "56px",
+      "right": "25px",
       "bottom": "20px",
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    newPostTitle.text(post.customer_name + " ");
+    newPostTitle.text(post.barber_name + " ");
     newPostTitle.css({
       "font-size": "30px",
       "margin-top": "8px"
     });
     //newPostBody.text(post.date);
-    newPostBody.text(post.reservation_date + " at " + post.reservation_time);
+    newPostBody.text(post.customer_name + " at " + post.reservation_time 
+    + " on " + post.reservation_date  + ", " + " Email: "  + post.customer_email + " Phone: " + post.customer_phone);
     newPostBody.css({
       "font-size": "20px",
       "position": "relative",
