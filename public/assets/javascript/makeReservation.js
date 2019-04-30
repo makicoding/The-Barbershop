@@ -26,10 +26,29 @@ $(document).ready(function () {
   // Adding an event listener for when the form is submitted
   $(customerReservationForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
-    // Wont submit the post if we are missing a body or a title
-    if (!titleInput.val().trim() || !bodyInput.val().trim()) {
-      return;
+
+    // User input validation
+    // Wont submit the post if we are missing a Customer Name, Mobile Number, Email, Barber Selection, Date Selection, Time Selection
+    if (!titleInput.val().trim() || !mobileInput.val().trim() || !emailInput.val().trim() || !postCategorySelect.val().trim() || !bodyInput.val().trim() || !postTime.val().trim()) {
+      console.log("Please fill out all fields before submitting!");
+
+      // Show the modal with alerting the user to fill out all fields
+      $("#pleaseFillAllFieldsModal").modal("toggle");
+
+      return; 
     }
+
+    // Show the modal confirming the user's appointment before submitting
+    $("#confirmModal").modal("toggle");
+
+    // Populate Confirm Modal with appointment data
+    $("#modalConfirmReservationDate").html(bodyInput.val());
+    $("#modalConfirmReservationTime").html(postTime.val());
+
+  })
+
+  $(".confirmButton").click(function() {
+
     // Constructing a newPost object to hand to the database
     var newPost = {
       customer_name: titleInput.val().trim(), // Customer Name
@@ -40,7 +59,6 @@ $(document).ready(function () {
       reservation_time: postTime.val() // Reservation Time
     };
 
-
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
     if (updating) {
@@ -50,13 +68,15 @@ $(document).ready(function () {
     } else {
       submitPost(newPost);
     }
+
   })
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
     // console.log(Post)
     $.post("/api/reservations/", Post, function () {
-      window.location.href = "/makeReservation";
+      console.log("New reservation submitted!");
+      reservationSuccessModal();
     });
   }
 
@@ -90,5 +110,14 @@ $(document).ready(function () {
     });
     console.log(post);
 
+  }
+
+  // Function to open Success Modal (To let the customer know the reservation was made successfully)
+  function reservationSuccessModal() {
+    $("#successModal").modal("toggle");
+
+    $(".successModalCloseButton").click(function() {
+      window.location.href = "/makeReservation";
+    });
   }
 });

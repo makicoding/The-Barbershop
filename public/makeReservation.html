@@ -145,7 +145,72 @@
     <!-------------------------------------------------------------------------------->
     <!-- MODALS -->
 
+    <!-- Modal 1 (Please fill all required fields) -->
+    <div id="pleaseFillAllFieldsModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h2 class="modal-title"><strong>Attention!</strong></h2>
+              </div>
+              <div class="modal-body text-center">
+                  <p>Please enter all required fields</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+    <!-------------------->
+    <!-- Modal 2 (Confirm) -->
+    <div id="confirmModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h2 class="modal-title"><strong>Confirm</strong></h2>
+              </div>
+              <div class="modal-body text-center">
+                <p>Are you sure you would like to submit your reservation for 
+                  <span id="modalConfirmReservationDate"></span> at 
+                  <span id="modalConfirmReservationTime"></span>?
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default confirmButton">Confirm</button>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+    <!-------------------->
+    <!-- Modal 3 (Success!) -->
+    <div id="successModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+  
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"><strong>Success!</strong></h2>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Your reservation has been submitted successfully!</p>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default successModalCloseButton">Close</button>
+                </div>
+            </div>
+  
+        </div>
+      </div>
 
 
 
