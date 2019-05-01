@@ -15,10 +15,9 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/makeReservation.css">
-    <link rel="stylesheet" href="assets/css/editReservation.css">
-    <link rel="stylesheet" href="assets/css/cancelReservation.css">
     <link rel="stylesheet" href="assets/css/barberPortal.css">
-    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
 
     <title>The Barbershop</title>
 
@@ -38,17 +37,21 @@
     <!-------------------------------------------------------------------------------->
     <!-- NAVIGATION CONTAINER -->
 
+    <div class="navigationWhiteBackPlate"></div>
+
     <div class="navigationContainer">
 
         <!-- Logo -->
         <img class="indexPageLogo" src="assets/images/sRGB_PNG/Logo.png" alt="Logo"></img>
 
-        <div class="openingPageButtonsContainer">
-            <a class="btn btn-primary openingPageButton" href="makeReservation.html" role="button">Make Reservation</a>
+        <div class="indexPageButtonsContainer">
+            <button class="indexPageButton" onClick="window.open('makeReservation.html', '_self')">Make Reservation</button>
             <br>
-            <a class="btn btn-primary openingPageButton" href="barberPortal.html" role="button">Barber Portal</a>
+            <button class="indexPageButton" onClick="window.open('barberPortal.html', '_self')">Barber Portal</button>
             <br>
-            <a class="btn btn-primary openingPageButton" href="about.html" role="button">About</a>
+            <button class="indexPageButton" onClick="window.open('services.html', '_self')">Services</button>
+            <br>
+            <button class="indexPageButton" onClick="window.open('contact.html', '_self')">Contact</button>
             <br>
         </div>
 

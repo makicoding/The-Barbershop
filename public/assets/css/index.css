@@ -1,4 +1,4 @@
-.navigationContainer {
+.navigationWhiteBackPlate {
     width: 300px;
     height: 520px;
 
@@ -17,45 +17,65 @@
     transform: translate(-150px, -260px);
 }
 
+.navigationContainer {
+    width: 300px;
+    height: 520px;
+
+    background-color: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-150px, -260px);
+}
+
 .indexPageLogo {
     width: 260px;
     text-align: center;
 
-    position: relative;
+    position: absolute;
     top: 20px;
     left: 20px;
 }
 
-.openingPageBranding {
-    width: 100%;
+.indexPageButtonsContainer {
+    width: 260px;
 
-    background-color: none;
+    position: absolute;
+    top: 295px;
+    left: 20px;
+}
+
+.indexPageButton {
+    width: 260px;
+    height: 40px;
+
+    margin: 0px 0px 15px 0px;
+    border: none;
+    border-radius: 5px;
+  
+    background-color: #FFC948;
     color: black;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-style: italic;
+    font-size: 20px;
     text-align: center;
-    font-size: 100px;
+    text-decoration: none;
+  
+    cursor: pointer;
 
-    position: absolute;
-    top: 33%;
+    position: relative;
+    left: 0px;
+}
+  
+.indexPageButton:hover {
+    background-color: black;
+    color: white;
 }
 
-.openingPageButtonsContainer {
-    width: 100%;
-
-    text-align: center;
-    
-    position: absolute;
-    top: 50%;
+.indexPageButton:focus {
+    outline: 0;         /* This gets rid of the blue outline around the button when the button is clicked */
 }
-
-.openingPageButton {
-    width: 170px;
-
-    margin: 5px 5px 5px 5px;
-}
-
-
 
 /* ---------------------------------------- */
 /* ---------------------------------------- */
@@ -64,8 +84,6 @@
 /* (1024px is viewport width of iPad Pro in vertical) */
 /* (1366px is viewport height of iPad Pro in vertical) */
 @media screen and (max-width: 1030px) {
-
-
 
 }
 
@@ -76,8 +94,6 @@
 /* (1024px is viewport height of iPad in vertical) */
 @media screen and (max-width: 980px) {
 
-
-
 }
 
 /* -------------------- */
@@ -85,21 +101,5 @@
 /* When Screen Size Max-Width is 750px */
 /* (375px is viewport width of iPhone X in vertical) */
 @media screen and (max-width: 750px) {
-
-    .openingPageBranding {
-        font-size: 70px;
-
-        position: absolute;
-        top: 25%;
-    }
-
-    .openingPageButtonsContainer {
-        width: 100%;
-
-        text-align: center;
-        
-        position: absolute;
-        top: 45%;
-    }
 
 }

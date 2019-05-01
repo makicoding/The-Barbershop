@@ -27,9 +27,14 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/barberPortal.html"));
   });
 
-  // about route loads about.html
-  app.get("/about", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/about.html"));
+  // services route loads services.html
+  app.get("/services", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/services.html"));
+  });
+
+  // contact route loads contact.html
+  app.get("/contact", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/contact.html"));
   });
 
 };

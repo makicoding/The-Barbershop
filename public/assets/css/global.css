@@ -40,11 +40,9 @@
     width: 80px;
     height: 80px;
 
-    position: fixed;
+    position: relative;
     left: 50%;
     transform: translate(-40px, 0px);
-
-    z-index: 1;
 }
 
 .pageHeading {
@@ -58,16 +56,17 @@
     position: relative;
     left: -1px;         /*  offset a little here because the font is italic and there is an optical illusion
                             happening with the text seeming to appear slightly to the right */
-    top: 100px;
+    top: 0px;
 }
 
 .mainContentContainer {
-    background-color: none;
+    background-color: none;     /* Set a color to see position of mainContentContainer on page */
 
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 
     position: relative;
-    top: 70px;
+    top: -28px;
 }
 
 /* ---------------------------------------- */
@@ -104,8 +103,6 @@
 /* (768px is viewport width of iPad in vertical) */
 /* (1024px is viewport height of iPad in vertical) */
 @media screen and (max-width: 980px) {
-
-
 
 }
 
