@@ -1,17 +1,32 @@
-button.submit {
-  float: right;
-}
-
-form#reservationForm {
-  margin-top: 50px;
-}
-
-#reservationForm textarea {
-  resize: none;
-}
-
 .card-header button.delete,
 button.edit {
   float: right;
   margin: 5px;
+}
+
+.refreshDataButton {
+  width: 100%;
+  height: 40px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: #FFC948;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.refreshDataButton:hover {
+  background-color: black;
+  color: white;
+}
+
+.refreshDataButton:focus {
+  outline: 0;         /* This gets rid of the blue outline around the button when the button is clicked */
 }

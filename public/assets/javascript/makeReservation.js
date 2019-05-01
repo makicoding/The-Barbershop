@@ -42,6 +42,7 @@ $(document).ready(function () {
     $("#confirmModal").modal("toggle");
 
     // Populate Confirm Modal with appointment data
+    $("#modalConfirmReservationBarber").html(postCategorySelect.val());
     $("#modalConfirmReservationDate").html(bodyInput.val());
     $("#modalConfirmReservationTime").html(postTime.val());
 
@@ -116,6 +117,9 @@ $(document).ready(function () {
   function reservationSuccessModal() {
     $("#successModal").modal("toggle");
 
+    // Include Barber name in Success Modal
+    $("#modalSuccessReservationBarber").html(postCategorySelect.val());
+    
     $(".successModalCloseButton").click(function() {
       window.location.href = "/makeReservation";
     });

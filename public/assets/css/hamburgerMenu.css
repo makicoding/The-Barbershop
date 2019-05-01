@@ -74,73 +74,68 @@
 /* Position the content inside the overlay */
 .overlay-content {
     position: relative;
-    top: 24%; /* 24% from the top */
+    top: 19%; /* Percentage from the top */
     left: -1px; /*  offset a little here because the font is italic and there is an optical illusion
                     happening with the text seeming to appear slightly to the right */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
-  
+
+/* -------------------- */
 /* The navigation links inside the overlay */
 .overlay a {
-    padding: 8px;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-size: 45px;
     color:white;
     display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
-    
+    cursor: pointer;
+    transition: 0.3s; /* Transition effects on hover (color) */  
 }
   
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover, .overlay a:focus {
     color: #FFC948;
-    font-size: 50px;
-    transition: 0.3s; /* Transition effects on hover (color) */
+    font-size: 55px;
 }
-  
+
+/* -------------------- */
 /* Position the close button (top right corner) */
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
+    top: 0px;
     right: 45px;
     font-size: 100px;
+    cursor: pointer;
     transition: 0.3s; /* Transition effects on hover (color) */
 }
 
+/* close button hover */
 .overlay .closebtn:hover {
-    position: absolute;
-    top: -5px;
+    top: -26px;
     right: 35px;
     font-size: 140px;
-    transition: 0.3s; /* Transition effects on hover (color) */
 }
 
+/* -------------------- */
 /* Non-Active button */
 .nonActiveButton {
-    padding: 8px;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-size: 45px;
     color: white;
+    display: block; /* Display block instead of inline */
     cursor: pointer;
     transition: 0.3s; /* Transition effects on hover (color) */
 }
 
-/* Non-Active button hover*/
+/* Non-Active button hover */
 .nonActiveButton:hover {
-    padding: 8px;
-    text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
     font-size: 55px;
     color: #FFC948;
-    cursor: pointer;
-    transition: 0.3s; /* Transition effects on hover (color) */
 }
 
 /* ---------------------------------------- */

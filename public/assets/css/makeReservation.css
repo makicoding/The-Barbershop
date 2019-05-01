@@ -1,25 +1,3 @@
-button.submit {
-  padding: 10px 25px 10px 20px !important;
-  border: none;
-  border-radius: 5px;
-
-  background-color: #FFC948;
-  color: black;
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  font-size: 20px;
-
-  cursor: pointer;
-  outline: 0;
-
-  float: right;
-}
-
-button.submit:hover {
-  background-color: black;
-  color: white;
-}
-  
 form#reservationForm {
   margin-top: 50px;
 }
@@ -28,8 +6,31 @@ form#reservationForm {
   resize: none;
 }
 
-.card-header button.delete,
-button.edit {
+button.submit {
+  width: 100px;
+  height: 40px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: #FFC948;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+
   float: right;
-  margin: 5px;
+}
+
+button.submit:hover {
+  background-color: black;
+  color: white;
+}
+
+button.submit:focus {
+  outline: 0;         /* This gets rid of the blue outline around the button when the button is clicked */
 }
