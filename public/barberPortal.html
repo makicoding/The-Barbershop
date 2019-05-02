@@ -45,8 +45,10 @@
 
     
     <!-------------------------------------------------------------------------------->
-    <!-- LOGO -->
-    <img class="logo" src="assets/images/sRGB_PNG/Logo.png" alt="Logo"></img>
+    <!-- LOGO BUTTON -->
+    <a class="logoButton" href="index.html">
+      <img class="logo" src="assets/images/sRGB_PNG/Logo.png" alt="Logo"></img>
+    </a>
     <br></br>
 
 
@@ -68,17 +70,24 @@
       
       <!-- Row 1 -->
       <div class="row">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-6 offset-md-3">
           <button class="refreshDataButton">Refresh Data</button>
         </div>
       </div>
-      
+
       <!-- Row 2 -->
-      <div class="row mt-4">
-        <div class="col-md-4 offset-md-4">
+      <div class="row mt-4">  <!-- m stands for margin, t stands for top, mt means margin top-->
+        <div class="col-md-6 offset-md-3">
+          <p class="selectBarberText">Select Barber:</p>
+        </div>
+      </div>
+      
+      <!-- Row 3 -->
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
           <div class="form-group">
             <select class="custom-select" id="category">
-              <option selected value="">Select Barber</option>
+              <option selected value="">All Barbers</option>
               <option value="Tony">Tony</option>
               <option value="Bob">Bob</option>
               <option value="Jim">Jim</option>
@@ -87,12 +96,12 @@
         </div>
       </div>
 
-      <!-- Row 3 (Reservation Data from barberPortal.js populates inside class="blog-container") -->
-      <div class="row">
-        <div class="col-md-12 blog-container"></div>
+      <!-- Row 4 (Reservation Data from barberPortal.js populates inside class="blog-container") -->
+      <div class="row mt-2">    <!-- m stands for margin, t stands for top, mt means margin top-->
+        <div class="col-md-6 offset-md-3 blog-container"></div>
       </div>
 
-      <br></br>
+      <br>
 
     </div>
 

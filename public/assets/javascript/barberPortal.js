@@ -75,20 +75,41 @@ $(document).ready(function () {
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
-    var newPostBody = $("<p>");
+    var newPostBody1 = $("<p>");
+    var newPostBody2 = $("<p>");
+    var newPostBody3 = $("<p>");
+    var newPostBody4 = $("<p>");
     newPostTitle.text(post.barber_name + " ");
-    newPostTitle.css({
-      "font-size": "30px",
-      "margin-top": "8px"
-    });
-    //newPostBody.text(post.date);
-    newPostBody.text(post.customer_name + " at " + post.reservation_time 
-    + " on " + post.reservation_date  + ", " + " Email: "  + post.customer_email + " Phone: " + post.customer_phone);
-    newPostBody.css({
-      "font-size": "20px",
-      "position": "relative",
-      "top": "10px",
-    })
+    newPostTitle.addClass("card-title");
+
+    //newPostBody1.text(post.date);
+    newPostBody1.text("Customer: " + post.customer_name);
+    // newPostBody1.css({
+    //   "font-size": "20px",
+    //   "position": "relative",
+    //   "top": "10px",
+    // })
+    //newPostBody2.text(post.date);
+    newPostBody2.text("Reservation: " + post.reservation_date + " at " + post.reservation_time);
+    // newPostBody2.css({
+    //   "font-size": "20px",
+    //   "position": "relative",
+    //   "top": "10px",
+    // })
+    //newPostBody3.text(post.date);
+    newPostBody3.text("Email: "  + post.customer_email);
+    // newPostBody3.css({
+    //   "font-size": "20px",
+    //   "position": "relative",
+    //   "top": "10px",
+    // })
+    //newPostBody4.text(post.date);
+    newPostBody4.text("Phone: " + post.customer_phone);
+    // newPostBody4.css({
+    //   "font-size": "20px",
+    //   "position": "relative",
+    //   "top": "10px",
+    // })
 
     var formattedDate = new Date(post.createdAt);
     //formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
@@ -98,7 +119,10 @@ $(document).ready(function () {
     newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostCategory);
-    newPostCardBody.append(newPostBody);
+    newPostCardBody.append(newPostBody1);
+    newPostCardBody.append(newPostBody2);
+    newPostCardBody.append(newPostBody3);
+    newPostCardBody.append(newPostBody4);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
