@@ -13,7 +13,7 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // GET route for getting all of the posts
+  // GET route for getting all of the posts (i.e. getting all the data for all reservations of all barbers)
   app.get("/api/reservations/", function (req, res) {
     var cool = new Date();
     var Sequelize = require("sequelize")
@@ -32,6 +32,7 @@ module.exports = function (app) {
     db.Reservation.findAll({
         order: [
           ["reservation_date"],
+          ["reservation_time"]
         ],
 
         where: {
@@ -49,7 +50,8 @@ module.exports = function (app) {
 
 
   
-  // GET route for returning posts of a specific category
+  // ----------------------------------------
+  // GET route for returning posts of a specific category (i.e. getting all the data for all reservations of a specific barber)
   app.get("/api/reservations/barber/:barberId", function (req, res) {
     var cool = new Date();
     var Sequelize = require("sequelize")
@@ -61,6 +63,11 @@ module.exports = function (app) {
     var nowDate = moment(cool).format("YYYY/MM/DD");
     var timeNow = moment(cool).format("LT");
     db.Reservation.findAll({
+        order: [
+          ["reservation_date"],
+          ["reservation_time"]
+        ],
+
         where: {
           barber_name: req.params.barberId,
           reservation_date: {
@@ -75,6 +82,7 @@ module.exports = function (app) {
 
 
 
+  // ----------------------------------------
   // GET route for retrieving a single post
   app.get("/api/reservations/:id", function (req, res) {
     db.Reservation.findOne({
@@ -89,6 +97,7 @@ module.exports = function (app) {
 
 
 
+  // ----------------------------------------
   // POST route for saving a new post
   app.post("/api/reservations", function (req, res) {
     console.log("this is req.body", req.body);
@@ -119,6 +128,7 @@ module.exports = function (app) {
 
 
 
+  // ----------------------------------------
   // DELETE route for deleting posts
   app.delete("/api/reservations/:id", function (req, res) {
     db.Reservation.destroy({
@@ -133,6 +143,7 @@ module.exports = function (app) {
 
 
 
+  // ----------------------------------------
   // PUT route for updating posts
   app.put("/api/reservations", function (req, res) {
     db.Reservation.update(req.body, {
