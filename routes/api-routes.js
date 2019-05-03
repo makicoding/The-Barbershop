@@ -34,7 +34,7 @@ module.exports = function (app) {
 
         where: {
           reservation_date: {
-            [Op.gt]: nowDate
+            [Op.gte]: nowDate
           }
 
 
@@ -62,7 +62,7 @@ module.exports = function (app) {
         where: {
           barber_name: req.params.barberId,
           reservation_date: {
-            [Op.gt]: nowDate
+            [Op.gte]: nowDate
           }
         }
       })

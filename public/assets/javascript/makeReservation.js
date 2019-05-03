@@ -35,51 +35,96 @@ $(document).ready(function () {
       // Show the modal with alerting the user to fill out all fields
       $("#pleaseFillAllFieldsModal").modal("toggle");
 
-      return; 
+      return;
     }
 
     // Show the modal confirming the user's appointment before submitting
     $("#confirmModal").modal("toggle");
+    let resDate;
+    if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 1)) {
+      resDate = "January";
 
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 2)) {
+      resDate = "Febuary";
+
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 3)) {
+      resDate = "March";
+
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 4)) {
+      resDate = "April";
+
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 5)) {
+      resDate = "May";
+      // bodyInput.val()[6] = "May"
+      // bodyInput.val()[7] = " "
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 6)) {
+      resDate = "June";
+
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 7)) {
+      resDate = "July";
+
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 8)) {
+      resDate = "August";
+
+    } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 9)) {
+      resDate = "September";
+
+    } else if ((bodyInput.val()[5] == 1) && (bodyInput.val()[6] == 0)) {
+      resDate = "October";
+
+    } else if ((bodyInput.val()[5] == 1) && (bodyInput.val()[6] == 1)) {
+      resDate = "November";
+
+    } else if ((bodyInput.val()[5] == 1) && (bodyInput.val()[6] == 2)) {
+      resDate = "December";
+
+    }
     // Populate Confirm Modal with appointment data
     $("#modalConfirmReservationBarber").html(postCategorySelect.val());
-    $("#modalConfirmReservationDate").html(bodyInput.val());
+    $("#modalConfirmReservationDate").html(resDate + " " + bodyInput.val()[8] + bodyInput.val()[9]);
     $("#modalConfirmReservationTime").html(postTime.val());
 
-  })
 
-  $(".confirmButton").click(function() {
 
-    // Constructing a newPost object to hand to the database
-    var newPost = {
-      customer_name: titleInput.val().trim(), // Customer Name
-      customer_phone: mobileInput.val(), // Mobile Number
-      customer_email: emailInput.val(), // Email
-      barber_name: postCategorySelect.val(), // Barber
-      reservation_date: bodyInput.val().trim(), // Reservation Date
-      reservation_time: postTime.val() // Reservation Time
-    };
 
-    // If we're updating a post run updatePost to update a post
-    // Otherwise run submitPost to create a whole new post
-    if (updating) {
 
-      newPost.id = postId;
-      updatePost(newPost);
-    } else {
-      submitPost(newPost);
+
+
+
+    $(".confirmButton").click(function () {
+
+      // Constructing a newPost object to hand to the database
+      var newPost = {
+        customer_name: titleInput.val().trim(), // Customer Name
+        customer_phone: mobileInput.val(), // Mobile Number
+        customer_email: emailInput.val(), // Email
+        barber_name: postCategorySelect.val(), // Barber
+        reservation_date: bodyInput.val().trim(), // Reservation Date
+        reservation_time: postTime.val() // Reservation Time
+      };
+
+      // If we're updating a post run updatePost to update a post
+      // Otherwise run submitPost to create a whole new post
+      if (updating) {
+
+        newPost.id = postId;
+        updatePost(newPost);
+      } else {
+        submitPost(newPost);
+      }
+
+    })
+
+    // Submits a new post and brings user to blog page upon completion
+    function submitPost(Post) {
+      // console.log(Post)
+      $.post("/api/reservations/", Post, function () {
+        console.log("New reservation submitted!");
+        reservationSuccessModal();
+      });
     }
+  });
 
-  })
-
-  // Submits a new post and brings user to blog page upon completion
-  function submitPost(Post) {
-    // console.log(Post)
-    $.post("/api/reservations/", Post, function () {
-      console.log("New reservation submitted!");
-      reservationSuccessModal();
-    });
-  }
 
   // Gets post data for a post if we're editing
   function getPostData(id) {
@@ -119,8 +164,8 @@ $(document).ready(function () {
 
     // Include Barber name in Success Modal
     $("#modalSuccessReservationBarber").html(postCategorySelect.val());
-    
-    $(".successModalCloseButton").click(function() {
+
+    $(".successModalCloseButton").click(function () {
       window.location.href = "/makeReservation";
     });
   }
