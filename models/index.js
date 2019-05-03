@@ -1,3 +1,6 @@
+// BOILERPLATE CODE
+// (Boilerplate code is a section of code that has to be included in with little or no alteration)
+
 "use strict";
 
 var fs = require("fs");

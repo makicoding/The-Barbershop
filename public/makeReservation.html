@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Favicon -->
-
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- CSS Links -->
     <link rel="stylesheet" href="assets/css/hamburgerMenu.css">
+    <link rel="stylesheet" href="assets/css/modals.css">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/makeReservation.css">
@@ -155,13 +154,13 @@
           <!-- Modal content-->
           <div class="modal-content">
               <div class="modal-header">
-                  <h2 class="modal-title"><strong>Attention!</strong></h2>
+                  <h2 class="modal-title modal1Title"><strong>Attention!</strong></h2>
               </div>
               <div class="modal-body text-center">
                   <p>Please enter all required fields</p>
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="closeButton modalFooterButton" data-dismiss="modal">Close</button>
               </div>
           </div>
 
@@ -187,8 +186,8 @@
                 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-default confirmButton">Confirm</button>
+                <button type="button" class="modalFooterButton" data-dismiss="modal">Close</button>
+                <button type="button" class="confirmButton modalFooterButton">Confirm</button>
               </div>
           </div>
 
@@ -210,7 +209,7 @@
                     <br>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default successModalCloseButton">Close</button>
+                  <button type="button" class="successModalCloseButton modalFooterButton">Close</button>
                 </div>
             </div>
   

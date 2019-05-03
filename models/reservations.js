@@ -1,3 +1,5 @@
+// SEQUELIZE CODE
+
 module.exports = function (sequelize, DataTypes) {
   var Reservation = sequelize.define("Reservation", {
     reservation_date: {
@@ -21,7 +23,6 @@ module.exports = function (sequelize, DataTypes) {
     customer_email: {
       type: DataTypes.STRING,
       validate: {
-        //isEmail: true
       }
     },
     customer_phone: {

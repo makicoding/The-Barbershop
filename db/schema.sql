@@ -1,4 +1,4 @@
--- Drops the blogger if it exists currently --
+-- Drops the "barbershop" database if it exists currently --
 DROP DATABASE IF EXISTS barbershop;
--- Creates the "blogger" database --
+-- Creates the "barbershop" database --
 CREATE DATABASE barbershop;
