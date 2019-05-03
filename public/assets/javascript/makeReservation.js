@@ -2,6 +2,7 @@ $(document).ready(function () {
   // Gets an optional query string from our url (i.e. ?post_id=23)
   var url = window.location.search;
   var postId;
+
   // Sets a flag for whether or not we're updating a post to be false initially
   var updating = false;
 
@@ -23,12 +24,13 @@ $(document).ready(function () {
 
   // Giving the postCategorySelect a default value
   postCategorySelect.val(" ");
+
   // Adding an event listener for when the form is submitted
   $(customerReservationForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
 
     // User input validation
-    // Wont submit the post if we are missing a Customer Name, Mobile Number, Email, Barber Selection, Date Selection, Time Selection
+    // Will not submit the post if we are missing a Customer Name, Mobile Number, Email, Barber Selection, Date Selection, Time Selection
     if (!titleInput.val().trim() || !mobileInput.val().trim() || !emailInput.val().trim() || !postCategorySelect.val().trim() || !bodyInput.val().trim() || !postTime.val().trim()) {
       console.log("Please fill out all fields before submitting!");
 
@@ -38,14 +40,14 @@ $(document).ready(function () {
       return;
     }
 
-    // Show the modal confirming the user's appointment before submitting
+    // Show Modal 1 confirming the user's appointment before submitting
     $("#confirmModal").modal("toggle");
     let resDate;
     if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 1)) {
       resDate = "January";
 
     } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 2)) {
-      resDate = "Febuary";
+      resDate = "February";
 
     } else if ((bodyInput.val()[5] == 0) && (bodyInput.val()[6] == 3)) {
       resDate = "March";
@@ -77,20 +79,17 @@ $(document).ready(function () {
 
     } else if ((bodyInput.val()[5] == 1) && (bodyInput.val()[6] == 2)) {
       resDate = "December";
-
     }
-    // Populate Confirm Modal with appointment data
+
+    // Populate Modal 1 with appointment data
     $("#modalConfirmReservationBarber").html(postCategorySelect.val());
     $("#modalConfirmReservationDate").html(resDate + " " + bodyInput.val()[8] + bodyInput.val()[9]);
     $("#modalConfirmReservationTime").html(postTime.val());
 
-
   });
 
 
-
-
-
+  // When the confirmButton on Modal 1 is clicked
   $(".confirmButton").click(function () {
 
     // Constructing a newPost object to hand to the database
@@ -115,7 +114,7 @@ $(document).ready(function () {
 
   })
 
-  // Submits a new post and brings user to blog page upon completion
+  // Submits a new post and brings user to the reservationSuccessModal function upon completion
   function submitPost(Post) {
     // console.log(Post)
     $.post("/api/reservations/", Post, function () {
@@ -124,13 +123,11 @@ $(document).ready(function () {
     });
   }
 
-
-
   // Gets post data for a post if we're editing
   function getPostData(id) {
     $.get("/api/reservations/" + id, function (data) {
       if (data) {
-        // If this post exists, prefill our cms forms with its data
+        // If this post exists, prefill our reservation forms with its data
         titleInput.val(data.customer_name); // Customer Name
         mobileInput.val(data.customer_phone) // Mobile
         emailInput.val(data.customer_email) // Email
@@ -145,7 +142,7 @@ $(document).ready(function () {
     });
   }
 
-  // Update a given post, bring user to the blog page when done
+  // Update a given post, bring user to the barberPortal page when done
   function updatePost(post) {
     $.ajax({
       method: "PUT",
@@ -158,11 +155,11 @@ $(document).ready(function () {
 
   }
 
-  // Function to open Success Modal (To let the customer know the reservation was made successfully)
+  // Function to open Modal 3 to let the customer know the reservation was made successfully
   function reservationSuccessModal() {
     $("#successModal").modal("toggle");
 
-    // Include Barber name in Success Modal
+    // Include Barber name in Modal 3
     $("#modalSuccessReservationBarber").html(postCategorySelect.val());
 
     $(".successModalCloseButton").click(function () {

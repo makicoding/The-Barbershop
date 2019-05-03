@@ -25,7 +25,9 @@
   outline: 0;         /* This gets rid of the blue outline around the button when the button is clicked */
 }
 
-/* Content populated by barberPortal.js */
+/* ---------------------------------------- */
+/* CONTENT POPULATED BY barberPortal.js */
+
 .card {
   margin: 0px 0px 26px 0px;
 

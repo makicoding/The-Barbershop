@@ -10,6 +10,7 @@ button.submit {
   width: 100px;
   height: 40px;
 
+  padding: 0px 3px 0px 0px;   /* Offset button text position to compensate for the italic font and the optical illusion it creates */
   border: none;
   border-radius: 5px;
 
