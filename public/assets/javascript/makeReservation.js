@@ -85,45 +85,45 @@ $(document).ready(function () {
     $("#modalConfirmReservationTime").html(postTime.val());
 
 
-
-
-
-
-
-
-    $(".confirmButton").click(function () {
-
-      // Constructing a newPost object to hand to the database
-      var newPost = {
-        customer_name: titleInput.val().trim(), // Customer Name
-        customer_phone: mobileInput.val(), // Mobile Number
-        customer_email: emailInput.val(), // Email
-        barber_name: postCategorySelect.val(), // Barber
-        reservation_date: bodyInput.val().trim(), // Reservation Date
-        reservation_time: postTime.val() // Reservation Time
-      };
-
-      // If we're updating a post run updatePost to update a post
-      // Otherwise run submitPost to create a whole new post
-      if (updating) {
-
-        newPost.id = postId;
-        updatePost(newPost);
-      } else {
-        submitPost(newPost);
-      }
-
-    })
-
-    // Submits a new post and brings user to blog page upon completion
-    function submitPost(Post) {
-      // console.log(Post)
-      $.post("/api/reservations/", Post, function () {
-        console.log("New reservation submitted!");
-        reservationSuccessModal();
-      });
-    }
   });
+
+
+
+
+
+  $(".confirmButton").click(function () {
+
+    // Constructing a newPost object to hand to the database
+    var newPost = {
+      customer_name: titleInput.val().trim(), // Customer Name
+      customer_phone: mobileInput.val(), // Mobile Number
+      customer_email: emailInput.val(), // Email
+      barber_name: postCategorySelect.val(), // Barber
+      reservation_date: bodyInput.val().trim(), // Reservation Date
+      reservation_time: postTime.val() // Reservation Time
+    };
+
+    // If we're updating a post run updatePost to update a post
+    // Otherwise run submitPost to create a whole new post
+    if (updating) {
+
+      newPost.id = postId;
+      updatePost(newPost);
+    } else {
+      submitPost(newPost);
+    }
+
+  })
+
+  // Submits a new post and brings user to blog page upon completion
+  function submitPost(Post) {
+    // console.log(Post)
+    $.post("/api/reservations/", Post, function () {
+      console.log("New reservation submitted!");
+      reservationSuccessModal();
+    });
+  }
+
 
 
   // Gets post data for a post if we're editing
