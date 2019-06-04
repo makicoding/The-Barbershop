@@ -13,6 +13,7 @@ App is responsive and designed for a mobile screen and larger.
 A reservation app for "The Barbershop" using a MySQL database hosted by JawsDB and deployed on Heroku. 
 
 This is a group project of a four member team.
+<br></br>
 
 <kbd>![Screenshot](https://raw.githubusercontent.com/makicoding/The-Barbershop/master/screenshot/TheBarberShop_Screenshot_01.png)</kbd>
 ***
