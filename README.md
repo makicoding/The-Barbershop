@@ -1,14 +1,22 @@
 # The-Barbershop
 
 [Click here to view deployed app](https://evening-everglades-28431.herokuapp.com/index.html)
+<br>
+***
+
+Technologies used: HTML, CSS, JavaScript, jQuery, Bootstrap, Datepicker, Moment, Node, Express, Sequelize, ORM (Object-Relational Mapping), MySQL, RESTful API, JSON, AJAX, JawsDB, Heroku.
+<br></br>
+App is responsive and designed for a mobile screen and larger. 
 
 ***
-### Overview
+### Overview:
 A reservation app for "The Barbershop" using a MySQL database hosted by JawsDB and deployed on Heroku. 
 
 This is a group project of a four member team.
+
+![Screenshot](
 ***
-### Technical Specification
+### Technical Specification:
 
 On the Make Reservation page, a customer enters their name, phone number, email, and selects the barber, date, and time for the reservation. 
 
@@ -16,4 +24,4 @@ On the Barber Portal page, all upcoming reservations can be viewed, and may also
 
 The app uses its own RESTful API. A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. This functionality is also known as CRUD (Create, Read, Update, Delete).
 
-Technologies used: HTML, CSS, JavaScript, jQuery, Bootstrap, Datepicker, Moment, Node, Express, Sequelize, ORM (Object-Relational Mapping), MySQL, RESTful API, JSON, AJAX, JawsDB, Heroku.
+
