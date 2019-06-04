@@ -14,7 +14,7 @@ A reservation app for "The Barbershop" using a MySQL database hosted by JawsDB a
 
 This is a group project of a four member team.
 
-![Screenshot](
+<kbd>![Screenshot](https://raw.githubusercontent.com/makicoding/The-Barbershop/master/screenshot/TheBarberShop_Screenshot_01.png)</kbd>
 ***
 ### Technical Specification:
 
